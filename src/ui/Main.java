@@ -2,6 +2,8 @@ package ui;
 import java.util.Scanner;
 import model.PetCenter;
 import model.Priority;
+import java.util.ArrayList;
+import model.Owner;
 
 /**
 *descripction:  name of the class to solve the problem using a Menu
@@ -30,8 +32,35 @@ public class Main
 	{
 		Main op = new Main();
 
-		op.showMenu();
+		op.showMenuPrincipal();
 
+
+	}
+
+	public void showMenuPrincipal()
+	{
+		int optionn = 0;
+
+		do{
+			System.out.println("Menu:\n"+
+				"(1) Emergencies\n"+
+				"(2) kindergarten");
+
+				optionn = entradat.nextInt();
+				entradat.nextLine();
+
+				switch (optionn) // Switch that redirect the class to de user chose
+				{
+				case 1:
+				showMenu(); 									
+				break;
+
+				case 2:                 					
+				showMenuKinder();       
+				break;
+				}
+
+			}while (optionn !=0);
 
 	}
 
@@ -62,13 +91,13 @@ public class Main
 				switch (option) // Switch that redirect the class to de user chose
 				{
 				case 1: 									//option to add a veterinarian
-				System.out.print("ingresa ID");
+				System.out.print("enter ID\n");
 				String id = entradat.nextLine();
-				System.out.print("ingresa nombre");
+				System.out.print("enter name\n");
 				String nameVet = entradat.nextLine();
-				System.out.print("ingresa apellidos");
+				System.out.print("enter fullname\n");
 				String fullName = entradat.nextLine();
-				System.out.print("ingresa registro unico de veterinario");
+				System.out.print("enter unique veterinary register\n");
 				String vetRegister = entradat.nextLine();
 				petcenter.showaddvet(id,nameVet,fullName,vetRegister);
 				break;
@@ -78,28 +107,28 @@ public class Main
 				break;
 
 				case 3:                                     // option to add a new pet 
-				System.out.print("ingresa specie");
+				System.out.print("enter specie\n");
 				String specie =entradat.nextLine();
-				System.out.print("ingresa nombre");
+				System.out.print("enter name\n");
 				String name = entradat.nextLine();
-				System.out.print("ingresa la edad");
+				System.out.print("enter age\n");
 				String age = entradat.nextLine();
-				System.out.print("ingresa la raza");
+				System.out.print("enter race\n");
 				String race = entradat.nextLine();
-				System.out.print("ingresa los sintomas");
+				System.out.print("enter symptom\n");
 				String symptoms = entradat.nextLine();
-				System.out.print("inggre el nombre id owner");
+				System.out.print("enter name of id owner\n");
 				String owner = entradat.nextLine();
-				System.out.print("ingrese el nivel de prioridad");
+				System.out.print("enter priority level (RED, ORANGE, YELLOW, GREEN, BLUE, NOTONE)\n");
 				String priority = entradat.nextLine();
 				Priority tpr = vPriority(priority);
 				petcenter.showaddpet(specie,name,age,race,symptoms,owner,tpr);
 				break;
 
 				case 4:	                                  //option to remove a pet
-				System.out.print("ingresa name");
+				System.out.print("enter name\n");
 				String nameo =entradat.nextLine();
-				System.out.print("ingresa name owner");
+				System.out.print("enter name owner\n");
 				String nameowner = entradat.nextLine();									
 				petcenter.showremovepet(nameo, nameowner);
 				break;
@@ -123,8 +152,6 @@ public class Main
 				case 0:
 				System.out.println("Bye :)");               //option to close th program
 
-				default:
-				System.out.println("Valor incorrecto");     //to show a message that the option entered has been incorrect
 			 }
 			
 
@@ -133,8 +160,49 @@ public class Main
 
 			
 
-		
 
+	}
+
+
+	public void showMenuKinder()
+	{
+		int optionnn = 0;
+
+		do{
+			System.out.println("Menu:\n"+
+				"(1) ADD\n"+
+				"(2) SHOW");
+
+				optionnn = entradat.nextInt();
+				entradat.nextLine();
+
+				switch (optionnn) // Switch that redirect the class to de user chose
+				{
+				case 1:
+				System.out.print("enter specie\n");
+				String specie =entradat.nextLine();
+				System.out.print("enter name\n");
+				String name = entradat.nextLine();
+				System.out.print("enter name of owner\n");
+				String n_Owner = entradat.nextLine();
+				System.out.print("enter id\n");
+				String id = entradat.nextLine();
+				System.out.print("enter cellphone\n");
+				String cellphone = entradat.nextLine();
+				System.out.print("enter address\n");
+				String address = entradat.nextLine();
+				System.out.print("enter days of pet into kinder\n");
+				int days = entradat.nextInt();
+				Owner ownerr = new Owner(id, n_Owner, cellphone, address);
+				petcenter.addpetHabitat(specie,name,ownerr,days);									
+				break;
+
+				case 2:                 					
+				System.out.println("bye alv");      
+				break;
+				}
+
+			}while (optionnn !=0);
 
 	}
 

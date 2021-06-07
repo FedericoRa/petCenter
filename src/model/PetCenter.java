@@ -14,6 +14,34 @@ public class PetCenter
     private Owner[] owners;               
     public static final int MAX_OWNERS = 120;
 
+    static PetHabitats[][]matrixHabitats = new PetHabitats [6][5];
+
+    public static final int MIN_CAT_ROW = 0;
+    public static final int MAX_CAT_ROW = 2;
+    public static final int MIN_CAT_CL = 0;
+    public static final int MAX_CAT_CL = 2;
+
+    public static final int MIN_RABB_ROW = 2;
+    public static final int MAX_RABB_ROW = 3;
+    public static final int MIN_RABB_CL = 3;
+    public static final int MAX_RABB_CL = 4;
+
+    public static final int MIN_REP_ROW = 0;
+    public static final int MAX_REP_ROW = 1;
+    public static final int MIN_REP_CL = 3;
+    public static final int MAX_REP_CL = 4;
+
+    public static final int MIN_BIRD_ROW = 4;
+    public static final int MAX_BIRD_ROW = 5;
+    public static final int MIN_BIRD_CL = 3;
+    public static final int MAX_BIRD_CL = 4;
+
+    public static final int MIN_DOG_ROW = 3;
+    public static final int MAX_DOG_ROW = 5;
+    public static final int MIN_DOG_CL = 0;
+    public static final int MAX_DOG_CL = 2;
+
+
 
 
     public PetCenter()
@@ -76,7 +104,6 @@ public class PetCenter
 	    }
 
 
-	    //(for) hacer arrelgo dw owner y si el id get owner.id
 
 
 	}
@@ -115,78 +142,6 @@ public class PetCenter
 	}
 
 
-	/*
-	public int vPriority(Priority priority)
-
-	{
-		int anw = 0;
-
-		if(Priority.RED == priority)
-		{
-			asw = 5;
-
-		}
-
-		else if(Priority.ORANGE == priority)
-		{
-			asw = 4;
-
-		}
-
-		else if(Priority.YELLOW == priority)
-		{
-			asw = 3;
-
-		}
-
-		else if(Priority.GREEN == priority)
-		{
-			asw = 2;
-
-		}
-
-		else if(Priority.BLUE == priority)
-		{
-			asw = 1;
-
-		}
-
-		else if(Priority.NOTONE == priority)
-		{
-			asw = 0;
-
-		} return asw;
-	}
-	*/
-
-
-	/*public void findnextpet()
-	{
-	 Pet =  nexPpet = null,
-
-	 int priorityy = 0;
-	 int priorityyy = 0;	
-
-
-		if(pett[0] != null)
-		{
-			if(pett[i].getStatus().equals(Status.WAITING))
-			{
-				priorityy  = vPriority(nextPet.getPriority());
-				priorityyy = vPriority(pett[i].getPriority());
-					if(priorityy > priorityyy)
-					{
-						nextPet = pett[i];
-					} 
-			}
-
-		} return nextPet;
-
-	}
-	*/
-
-
-
 
 	public void showstartconsultation()
 	{
@@ -212,14 +167,326 @@ public class PetCenter
 
 
 
+//Methods of cat
+
+	public String addCatHabitat(pet)
+	{
+		boolean cen = false;
+
+		String message ="";
+
+		for(int i = MIN_CAT_ROW; i <= MAX_CAT_ROW && !cen; i ++)
+		{
+			for(int j = MIN_CAT_CL; j <= MAX_CAT_CL && !cen; i++)
+			{
+				if(matrixHabitats[i][j].getPet() ==  null)
+				{
+					cen = true;
+					matrixHabitats [i][j].setPet(cat);
+					matrixHabitats [i][j].setHabitatStatus.V;
+					message = "the cat has been transfer to kindergarden";
+
+				}
+			}
+		}
+		return message;
+	}
+
+	public HabitatIDCat()
+	{
+		matrixHabitats = new PetHabitats [6][5];
+		int acum = 0;
+
+			for(int i = MIN_CAT_ROW; i <= MAX_CAT_ROW; i ++)
+		{
+			for(int j = MIN_CAT_CL; j <= MAX_CAT_CL; i++)
+			{
+				matrixHabitats[i][j] = new CatZone("CZ"+(acum+1), 160, 130, 100,75); //falta status
+				acum ++;
+			}
+		}
+
+	}
+
+	public boolean findhabitatCat()
+	{
+		boolean message = false;
+
+				for(int i = MIN_CAT_ROW; i <= MAX_CAT_ROW; i ++)
+		{
+			for(int j = MIN_CAT_CL; j <= MAX_CAT_CL; i++)
+			{
+				if(matrixHabitats[i][j].getPet() = null)
+				{
+					message = true;
+				}
+				else message = false;
+			}
+		}
+		return message;
+
+
+	}
+
+
+	//Methods of Dog
+
+	public String addDogHabitat(pet)
+	{
+		boolean cen = false;
+
+		String mmssgg ="";
+
+		for(int i = MIN_DOG_ROW; i <= MAX_DOG_ROW && !cen; i ++)
+		{
+			for(int j = MIN_DOG_CL; j <= MAX_DOG_CL && !cen; i++)
+			{
+				if(matrixHabitats[i][j].getPet() ==  null)
+				{
+					cen = true;
+					matrixHabitats [i][j].setPet(dog);
+					matrixHabitats [i][j].setHabitatStatus.V;
+					mmssgg = "the dog has been transfer to kindergarden";
+
+				}
+			}
+		}
+		return mmssgg;
+	}
+
+	public HabitatIDDog()
+	{
+		matrixHabitats = new PetHabitats [6][5];
+		int acum = 0;
+
+			for(int i = MIN_DOG_ROW; i <= MAX_DOG_ROW; i ++)
+		{
+			for(int j = MIN_DOG_CL; j <= MAX_DOG_CL; i++)
+			{
+				matrixHabitats[i][j] = new DogZone("DZ"+(acum+1), 200, 160, 2); //falta status
+				acum ++;
+			}
+		}
+
+	}
+
+	public boolean findhabitatDog()
+	{
+		boolean mmssgg = false;
+
+				for(int i = MIN_DOG_ROW; i <= MAX_DOG_ROW; i ++)
+		{
+			for(int j = MIN_DOG_CL; j <= MAX_DOG_CL; i++)
+			{
+				if(matrixHabitats[i][j].getPet() = null)
+				{
+					mmssgg = true;
+				}
+				else mmssgg = false;
+			}
+		}
+		return mmssgg;
+
+
+	}
+
+	//Methods of Rabbit
+
+	public String addRabbitHabitat(pet)
+	{
+		boolean cen = false;
+
+		String messgg ="";
+
+		for(int i = MIN_RABB_ROW; i <= MAX_RABB_ROW && !cen; i ++)
+		{
+			for(int j = MIN_RABB_CL; j <= MAX_RABB_CL && !cen; i++)
+			{
+				if(matrixHabitats[i][j].getPet() ==  null)
+				{
+					cen = true;
+					matrixHabitats [i][j].setPet(rabbit);
+					matrixHabitats [i][j].setHabitatStatus.V;
+					messgg = "the rabbit has been transfer to kindergarden";
+
+				}
+			}
+		}
+		return messgg;
+	}
+
+	public HabitatIDRabbit()
+	{
+		matrixHabitats = new PetHabitats [6][5];
+		int acum = 0;
+
+			for(int i = MIN_RBB_ROW; i <= MAX_RBB_ROW; i ++)
+		{
+			for(int j = MIN_RBB_CL; j <= MAX_RBB_CL; i++)
+			{
+				matrixHabitats[i][j] = new RabbitZone("RZ"+(acum+1), 70, 40, "madriguera", 1);//falta status
+				acum ++;
+			}
+		}
+
+	}
+
+	public boolean findhabitatRabbit()
+	{
+		boolean mssgg = false;
+
+				for(int i = MIN_RABB_ROW; i <= MAX_RABB_ROW; i ++)
+		{
+			for(int j = MIN_RABB_CL; j <= MAX_RABB_CL; i++)
+			{
+				if(matrixHabitats[i][j].getPet() = null)
+				{
+					mssgg = true;
+				}
+				else mssgg = false;
+			}
+		}
+		return mssgg;
+
+
+	}
+
+
+	//Method of Bird
+
+	public String addBirdHabitat(pet)
+	{
+		boolean cen = false;
+
+		String messsgg ="";
+
+		for(int i = MIN_BIRD_ROW; i <= MAX_RABB_ROW && !cen; i ++)
+		{
+			for(int j = MIN_RABB_CL; j <= MAX_RABB_CL && !cen; i++)
+			{
+				if(matrixHabitats[i][j].getPet() ==  null)
+				{
+					cen = true;
+					matrixHabitats [i][j].setPet(bird);
+					matrixHabitats [i][j].setHabitatStatus.V;
+					messsgg = "the bird has been transfer to kindergarden";
+
+				}
+			}
+		}
+		return messsgg;
+	}
+
+	public HabitatIDBird()
+	{
+		matrixHabitats = new PetHabitats [6][5];
+		int acum = 0;
+
+			for(int i = MIN_BIRD_ROW; i <= MAX_BIRD_ROW; i ++)
+		{
+			for(int j = MIN_BIRD_CL; j <= MAX_BIRD_CL; i++)
+			{
+				matrixHabitats[i][j] = new BirdZone("BZ"+(acum+1), 300, 200, 4, 100); ///falta status, cage
+				acum ++;
+			}
+		}
+
+	}
+
+	public boolean findhabitatBird()
+	{
+		boolean msssgg = false;
+
+				for(int i = MIN_BIRD_ROW; i <= MAX_BIRD_ROW; i ++)
+		{
+			for(int j = MIN_BIRD_CL; j <= MAX_BIRD_CL; i++)
+			{
+				if(matrixHabitats[i][j].getPet() = null)
+				{
+					msssgg = true;
+				}
+				else msssgg = false;
+			}
+		}
+		return msssgg;
+
+
+	}
+
+
+	//Methods of Reptile
+
+	public String addReptileHabitat(pet)
+	{
+		boolean cen = false;
+
+		String mg ="";
+
+		for(int i = MIN_REP_ROW; i <= MAX_REP_ROW && !cen; i ++)
+		{
+			for(int j = MIN_REP_CL; j <= MAX_REP_CL && !cen; i++)
+			{
+				if(matrixHabitats[i][j].getPet() ==  null)
+				{
+					cen = true;
+					matrixHabitats [i][j].setPet(reptile);
+					matrixHabitats [i][j].setHabitatStatus.V;
+					mg = "the reptile has been transfer to kindergarden";
+
+				}
+			}
+		}
+		return mg;
+	}
+
+	public HabitatIDReptile()
+	{
+		matrixHabitats = new PetHabitats [6][5];
+		int acum = 0;
+
+			for(int i = MIN_REP_ROW; i <= MAX_REP_ROW; i ++)
+		{
+			for(int j = MIN_REP_CL; j <= MAX_REP_CL; i++)
+			{
+				matrixHabitats[i][j] = new ReptileZone("RpZ"+(acum+1), 400, 320,"Madera"); //falta status, aquarium
+				acum ++;
+			}
+		}
+
+	}
+
+	public boolean findhabitatReptile()
+	{
+		boolean mg = false;
+
+				for(int i = MIN_REP_ROW; i <= MAX_REP_ROW; i ++)
+		{
+			for(int j = MIN_REP_CL; j <= MAX_REP_CL; i++)
+			{
+				if(matrixHabitats[i][j].getPet() = null)
+				{
+					mg = true;
+				}
+				else mg = false;
+			}
+		}
+		return mg;
+
+
+	}
+
+
+
+
+
+
+
 
 
 
  
 
-	//prioridad para cambiarlo
 
-	 //pet.setStatus(Status.IN_CONSULTATION);
 	
 
 }

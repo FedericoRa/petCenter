@@ -16,6 +16,7 @@ public class Pet
 	private Owner owner;		//private variable of pet's owner
 	private Priority priority;	//private variable of pet's priority
 	private Status status;		//private variable of pet's status
+	private int days; 
 
 
 	public Pet()
@@ -24,8 +25,15 @@ public class Pet
 	}
 
 
+	//new constructor to add pet in kinder
 
+	public Pet(String specie, String name, Owner owner,int days)
+	{
+		this.name = name;
+		this.owner = owner;
+		this.days = days;
 
+	}
 
 
 	//constructor of pets
@@ -42,6 +50,8 @@ public class Pet
 	*@param owner      type owner
 	*@param priority   type priority
 	*/
+
+	//construcots con datos necesrios
 
 	public Pet(String specie, String name, String age, String race, String symptoms, Owner owner, Priority priority )
 	{
