@@ -27,15 +27,6 @@ public class Pet
 
 	//new constructor to add pet in kinder
 
-	public Pet(Species specie, String race, String pname, String age, String id, String name, String cellPhone, String adress, int days){
-		this.specie = specie;
-		this.race = race;
-		this.pname = pname;
-		this.age = age;
-		hospitalizationDays = days;
-		
-		owner = new Owner(id, name,cellPhone, address);
-	}
 	
 	public Pet(Species specie, String pname,String age, String id, String name, String cellPhone, String address, int days){
 		this.specie = specie;
