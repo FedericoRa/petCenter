@@ -46,7 +46,6 @@ public class PetCenter
 
 
 
-
     public PetCenter()
     {
       pett = new Pet[MAX_PET];
@@ -82,39 +81,31 @@ public class PetCenter
 
 /**
 	*This method is to find some vet in petcenter
-	*@param id type String  
+	*@param ie type String  
 	*/
 
-	public int findVet(String id)
+
+
+	public String showremoveveterinary(String ie)
 	{
-		boolean cen = false;
-		int iV = -1;
+
+		String sh;
+		int count = 0;
 		
-
-		for(int i= 0; i < MAX_VETS && !cen; i++)
-		{
-			if(vets[i] != null)
-			{
-				if(id.equals(vets[i].getid()))
-					cen = true ;
-					iV = i;
-
-			}
+		for(int i = 0; i < MAX_PET; i++){
+			if(pett[i] == null)
+				{
+					count++;
+				}
 		}
-
-		if (cen = false)
+		
+		if(count == MAX_PET)
 		{
-			iV = -1;
-		}
-
-		return iV;
-  }
-
-
-
-	public void showremoveveterinary()
-	{
-		System.out.print("this the method to remove a some vet");
+			sh = "Vet has been eliminated successfully " + vets[ie].getNameVet() + " " + vets[ie].getLastName();
+			vets[index] = null;
+		} else sh = "Vet cant be eliminated cause are pets into veterinary";
+		
+		return sh;
 	}
 
 
@@ -222,7 +213,7 @@ public class PetCenter
 
 	public void createdHabitats()
 	{	
-		PetHabitats = new matrixHabitats[MAX_ROW_MATRIX][MAX_COLUMN_MATRIX];
+		matrixHabitats  = new PetHabitats[MAX_ROW_MATRIX][MAX_COLUMN_MATRIX];
 
 
 		int acum = 0;
@@ -294,6 +285,242 @@ public class PetCenter
 	}
 
 
+
+public void showaddpetinhabitats()
+{
+	int op = 0;
+
+	do
+	{
+		System.out.println("Choose some option\n"+
+			"(1) CAT\n"+
+			"(2) DOG\n"+
+			"(3) RABBIT\n"+
+			"(4) BIRD\n"+
+			"(5) REPTILE");
+		op = entradat.nextInt();
+		entradat.nextLine();
+
+		switch(op)
+		{
+
+			case 1:
+			if(findHabitatCat() == true)
+			{
+				Species cat = Species.CAT;
+		    System.out.print("Race\n");
+		    String race = entradat.nextLine();
+		    System.out.print("Pet's name\n");
+		    String name = entradat.nextLine();
+		    System.out.print("Age\n");
+		    String age = entradat.nextLine();
+		    System.out.print("ID owner\n");
+		    String id = entradat.nextLine();
+		    System.out.print("Name\n");
+		    String name = entradat.nextLine();
+		    System.out.print("Cellphone\n");
+		    String cellphone = entradat.nextLine();
+		    System.out.print("Address\n");
+		    String address = entradat.nextLine();
+		    System.out.print("Days in hospitalization\n");
+		    String days = entradat.nextInt();
+		    entradat.nextLine();
+
+		    Pet nCat = new Pet(cat, race, name, age, id, name, cellphone, address, days);
+
+		    System.out.println(findHabitatCat.addPet(op, ncat));
+			}
+
+			else System.out.println("No habitats available");
+			break;
+
+
+			case 2:
+			if(findHabitatDog() == true)
+			{
+				Species dog = Species.DOG;
+		    System.out.print("Race\n");
+		    String race = entradat.nextLine();
+		    System.out.print("Pet's name\n");
+		    String name = entradat.nextLine();
+		    System.out.print("Age\n");
+		    String age = entradat.nextLine();
+		    System.out.print("ID owner\n");
+		    String id = entradat.nextLine();
+		    System.out.print("Name\n");
+		    String name = entradat.nextLine();
+		    System.out.print("Cellphone\n");
+		    String cellphone = entradat.nextLine();
+		    System.out.print("Address\n");
+		    String address = entradat.nextLine();
+		    System.out.print("Days in hospitalization\n");
+		    String days = entradat.nextInt();
+		    entradat.nextLine();
+
+		    Pet nDog = new Pet(dog, race, name, age, id, name, cellphone, address, days);
+
+		    System.out.println(findHabitatDog.addPet(op, nDog));
+			}
+
+			else System.out.println("No habitats available");
+			break;
+
+			case 3:
+			if(findHabitatRabbit() == true)
+			{
+				Species rabbit = Species.RABBIT;
+		    System.out.print("Race\n");
+		    String race = entradat.nextLine();
+		    System.out.print("Pet's name\n");
+		    String name = entradat.nextLine();
+		    System.out.print("Age\n");
+		    String age = entradat.nextLine();
+		    System.out.print("ID owner\n");
+		    String id = entradat.nextLine();
+		    System.out.print("Name\n");
+		    String name = entradat.nextLine();
+		    System.out.print("Cellphone\n");
+		    String cellphone = entradat.nextLine();
+		    System.out.print("Address\n");
+		    String address = entradat.nextLine();
+		    System.out.print("Days in hospitalization\n");
+		    String days = entradat.nextInt();
+		    entradat.nextLine();
+
+		    Pet nRabbit = new Pet(rabbit, race, name, age, id, name, cellphone, address, days);
+
+		    System.out.println(findHabitatRabbit.addPet(op, nRabbit));
+			}
+
+			else System.out.println("No habitats available");
+			break;
+
+			case 4:
+			if(findHabitatBird() == true)
+			{
+				Species bird = Species.BIRD;
+		    System.out.print("Race\n");
+		    String race = entradat.nextLine();
+		    System.out.print("Pet's name\n");
+		    String name = entradat.nextLine();
+		    System.out.print("Age\n");
+		    String age = entradat.nextLine();
+		    System.out.print("ID owner\n");
+		    String id = entradat.nextLine();
+		    System.out.print("Name\n");
+		    String name = entradat.nextLine();
+		    System.out.print("Cellphone\n");
+		    String cellphone = entradat.nextLine();
+		    System.out.print("Address\n");
+		    String address = entradat.nextLine();
+		    System.out.print("Days in hospitalization\n");
+		    String days = entradat.nextInt();
+		    entradat.nextLine();
+
+		    Pet nBird = new Pet(bird, race, name, age, id, name, cellphone, address, days);
+
+		    System.out.println(findHabitatBird.addPet(op, nBird));
+			}
+
+			else System.out.println("No habitats available");
+			break;
+
+			case 5:
+			if(findHabitatReptile() == true)
+			{
+				Species reptile = Species.REPTILE;
+		    System.out.print("Race\n");
+		    String race = entradat.nextLine();
+		    System.out.print("Pet's name\n");
+		    String pname = entradat.nextLine();
+		    System.out.print("Age\n");
+		    String age = entradat.nextLine();
+		    System.out.print("ID owner\n");
+		    String id = entradat.nextLine();
+		    System.out.print("Name\n");
+		    String name = entradat.nextLine();
+		    System.out.print("Cellphone\n");
+		    String cellphone = entradat.nextLine();
+		    System.out.print("Address\n");
+		    String address = entradat.nextLine();
+		    System.out.print("Days in hospitalization\n");
+		    String days = entradat.nextInt();
+		    entradat.nextLine();
+
+		    Pet nReptile = new Pet(reptile, race, name, age, id, name, cellphone, address, days);
+
+		    System.out.println(findHabitatReptile.addPet(op, nReptile));
+			}
+
+			else System.out.println("No habitats available");
+			break;
+
+
+		}
+
+	}while (optionnn !=0);
+
+}
+
+
+	//find pet
+	public String findApet(String name)
+	{
+		msg ="";
+		boolean c = false;
+		boolean cc = false;
+
+		for(int i = 0; i <= MAX_ROW_MATRIX && !c; i++)
+		{
+			for(int j = 0; j <= MAX_COLUMN_MATRIX && !cc; i++)
+			{
+				if(habitats [i][j].getPet().getName().equals(name))
+				{
+					c = true;
+					cc = true;
+					msg += "la mascota esta en "+ matrixHabitats[i][j].getIdNumber();
+
+					if (matrixhabitats[i][j].getHabitatStatus() == HabitatStatus.E)
+					{
+						msg += "E";
+					}
+					else
+					{
+						msg += "S";
+
+					}
+				}
+				else msg += "This name cant find here";
+
+			}
+		}
+	}
+
+	//show zone
+	public void showzoneofpet()
+	{
+		System.out.println("Enter name of pet");
+		String name = entradat.nextLine();
+
+		System.out.println(findApet(name));
+	}
+
+	public void showmap()
+	{
+		System.out.print("this the method to ...");	
+	}
+
+	public void showinfohabitat()
+	{
+		System.out.print("this the method to ...");	
+	}
+
+	public void showStatistics()
+	{
+		System.out.print("this the method to ...");	
+	}
+
+	
 
 
 //Methods of cat

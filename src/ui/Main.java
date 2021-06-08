@@ -105,8 +105,11 @@ public class Main
 				petcenter.showaddvet(id,nameVet,fullName,vetRegister);
 				break;
 
-				case 2:                 					//option to remove a veterinary
-				petcenter.showremoveveterinary();       
+				case 2:   
+				System.out.print("enter ID of Vet\n");
+				String id = entradat.nextLine();              					//option to remove a veterinary
+				petcenter.showremoveveterinary(id);
+
 				break;
 
 				case 3:                                     // option to add a new pet 
@@ -172,7 +175,7 @@ public class Main
 		int optionnn = 0;
 
 		do{
-			System.out.println("Menu:\n"+
+			System.out.println("Menu kindergarden:\n"+
 				"(1) ADD\n"+
 				"(2) SHOW Zone of pet\n"+
 				"(3) Map\n"+
@@ -186,125 +189,27 @@ public class Main
 				switch (optionnn) // Switch that redirect the class to de user chose
 				{
 				case 1:
-				int o_specie = 0;
-				
-				System.out.println("Enter Specie:\n"+
-				"(1) REPTILE\n"+
-				"(2) BIRD\n"+
-				"(3) CAT\n"+
-				"(4) DOG\n"+
-				"(5) RABBIT\n"+
-				"(0) Back\n");
-
-				o_specie = entradat.nextInt();
-				entradat.nextLine();
-					switch (o_specie)
-					{
-						case 1:
-						System.out.print("enter specie\n");
-						String specie =entradat.nextLine();
-						System.out.print("enter name\n");
-						String name = entradat.nextLine();
-						System.out.print("enter name of owner\n");
-						String n_Owner = entradat.nextLine();
-						System.out.print("enter id\n");
-						String id = entradat.nextLine();
-						System.out.print("enter cellphone\n");
-						String cellphone = entradat.nextLine();
-						System.out.print("enter address\n");
-						String address = entradat.nextLine();
-						System.out.print("enter days of pet into kinder\n");
-						int days = entradat.nextInt();
-						System.out.print("enter type of acuarium\n");
-						String aquariumTypee = entradat.nextLine();
-						AquariumType prtt = vAquarium(aquariumTypee);
-						Owner ownerr = new Owner(id, n_Owner, cellphone, address);
-						petcenter.addReptileInHabitat(specie,name,ownerr,days,prtt);
-						break;
-
-						case 2:
-						System.out.print("enter specie\n");
-						String specie =entradat.nextLine();
-						System.out.print("enter name\n");
-						String name = entradat.nextLine();
-						System.out.print("enter name of owner\n");
-						String n_Owner = entradat.nextLine();
-						System.out.print("enter id\n");
-						String id = entradat.nextLine();
-						System.out.print("enter cellphone\n");
-						String cellphone = entradat.nextLine();
-						System.out.print("enter address\n");
-						String address = entradat.nextLine();
-						System.out.print("enter days of pet into kinder\n");
-						int days = entradat.nextInt();
-						System.out.print("enter type of cage\n");
-						String cageTypee = entradat.nextLine();
-						CageType ttpr = vCage(cageTypee);
-						Owner ownerr = new Owner(id, n_Owner, cellphone, address);
-						petcenter.addBirdInHabitat(specie,name,ownerr,days,ttpr);
-						break;
-
-						case 3:
-						System.out.print("enter specie\n");
-						String specie =entradat.nextLine();
-						System.out.print("enter name\n");
-						String name = entradat.nextLine();
-						System.out.print("enter name of owner\n");
-						String n_Owner = entradat.nextLine();
-						System.out.print("enter id\n");
-						String id = entradat.nextLine();
-						System.out.print("enter cellphone\n");
-						String cellphone = entradat.nextLine();
-						System.out.print("enter address\n");
-						String address = entradat.nextLine();
-						System.out.print("enter days of pet into kinder\n");
-						int days = entradat.nextInt();
-						Owner ownerr = new Owner(id, n_Owner, cellphone, address);
-						petcenter.addCatInHabitat(specie,name,ownerr,days);
-						break;
-
-						case 4:
-						System.out.print("enter specie\n");
-						String specie =entradat.nextLine();
-						System.out.print("enter name\n");
-						String name = entradat.nextLine();
-						System.out.print("enter name of owner\n");
-						String n_Owner = entradat.nextLine();
-						System.out.print("enter id\n");
-						String id = entradat.nextLine();
-						System.out.print("enter cellphone\n");
-						String cellphone = entradat.nextLine();
-						System.out.print("enter address\n");
-						String address = entradat.nextLine();
-						System.out.print("enter days of pet into kinder\n");
-						int days = entradat.nextInt();
-						Owner ownerr = new Owner(id, n_Owner, cellphone, address);
-						petcenter.addDogInHabitat(specie,name,ownerr,days);
-						break;
-
-						case 5:
-						System.out.print("enter specie\n");
-						String specie =entradat.nextLine();
-						System.out.print("enter name\n");
-						String name = entradat.nextLine();
-						System.out.print("enter name of owner\n");
-						String n_Owner = entradat.nextLine();
-						System.out.print("enter id\n");
-						String id = entradat.nextLine();
-						System.out.print("enter cellphone\n");
-						String cellphone = entradat.nextLine();
-						System.out.print("enter address\n");
-						String address = entradat.nextLine();
-						System.out.print("enter days of pet into kinder\n");
-						int days = entradat.nextInt();
-						Owner ownerr = new Owner(id, n_Owner, cellphone, address);
-						petcenter.addRabbitInHabitat(specie,name,ownerr,days);
-						break;
-				    }while (optionnn !=0);								
+				showaddpetinhabitats();
 				break;
 
 				case 2:                 					
-				System.out.println("bye alv");      
+				showzoneofpet();      
+				break;
+
+				case 3:                 					
+				showmap();      
+				break;
+
+				case 4:                 					
+				showinfohabitat();      
+				break;
+
+				case 5:                 					
+				showStatistics();      
+				break;
+
+				case 2:                 					
+				showzoneofpet();      
 				break;
 				}
 
@@ -353,45 +258,6 @@ public class Main
 
 		}return prt;
 	}
-
-	public AquariumType vAquarium(String aquariumTypee)
-
-	{
-		AquariumType prtt = AquariumType.NOTO;
-
-		if( aquariumTypee.equalsIgnoreCase("AMPHIBIAN"))
-		{
-			prtt = AquariumType.AMPHIBIAN;
-
-		}
-		else if( aquariumTypee.equalsIgnoreCase("EARTH"))
-		{
-			prtt = AquariumType.EARTH;
-
-		}return prtt;
-	}
-
-
-	public CageType vCage(String cageTypee)
-
-	{
-		CageType ttpr = CageType.NOTTO;
-
-		if( cageTypee.equalsIgnoreCase("GROUND_GUACAL"))
-		{
-			ttpr = CageType.GROUND_GUACAL;
-
-		}
-		else if( cageTypee.equalsIgnoreCase("PENDET_GUACAL"))
-		{
-			ttpr = CageType.PENDET_GUACAL;
-
-		}return ttpr;
-	}
-
-
-
-
 
 
 }

@@ -40,22 +40,22 @@ public class Veterinary
 	*get the value
 	*/
 
-	public String id()
+	public String getId()
 	{
 		return id;
 	}
 
-	public String name()
+	public String getNameVet()
 	{
 		return nameVet;
 	}
 
-	public String lastName()
+	public String getLastName()
 	{
 		return lastName;
 	}
 	
-	public String vetRegister()
+	public String getVetRegister()
 	{
 		return vetRegister;
 	}
