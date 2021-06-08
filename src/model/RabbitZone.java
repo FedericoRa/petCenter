@@ -23,6 +23,16 @@ public class RabbitZone extends PetHabitats
 	*/
 
 
+	public RabbitZone(String habitatID, String length, String width, String plant_Type, String plants_Number, int days)
+	{
+		super(habitatID, length, width);
+		this.plant_Type = plant_Type;
+		this.plants_Number = plants_Number;
+		this.days = days;
+
+	}
+
+
 	public RabbitZone(String habitatID, String length, String width, String plant_Type, String plants_Number)
 	{
 		super(habitatID, length, width);
@@ -48,7 +58,7 @@ public class RabbitZone extends PetHabitats
 
 	public void setPlant_Type(String plant_Type)
 	{
-		this.height = plant_Type;
+		this.plant_Type = plant_Type;
 	}
 
 	public void setPlants_Number(String plants_Number)
@@ -58,12 +68,11 @@ public class RabbitZone extends PetHabitats
 
 
 	@Override
-	public String showInfo()
+	public String toString()
 	{
-		String out = super.showstats();
-		out += "Dog";
-
-		return out;
+		return super.toString() +		
+		"\ttype of plant " + plant_Type +
+		"\namount of plants " + plants_Number+ "\n";
 	}
 
 	

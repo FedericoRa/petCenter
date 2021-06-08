@@ -4,6 +4,9 @@ import model.PetCenter;
 import model.Priority;
 import java.util.ArrayList;
 import model.Owner;
+import model.AquariumType;
+import model.CageType;
+import model.HabitatStatus;
 
 /**
 *descripction:  name of the class to solve the problem using a Menu
@@ -171,7 +174,11 @@ public class Main
 		do{
 			System.out.println("Menu:\n"+
 				"(1) ADD\n"+
-				"(2) SHOW");
+				"(2) SHOW Zone of pet\n"+
+				"(3) Map\n"+
+				"(4) Info Pet and Habitat\n"+
+				"(5) Statistics\n"+
+				"(0) go back\n");
 
 				optionnn = entradat.nextInt();
 				entradat.nextLine();
@@ -179,22 +186,121 @@ public class Main
 				switch (optionnn) // Switch that redirect the class to de user chose
 				{
 				case 1:
-				System.out.print("enter specie\n");
-				String specie =entradat.nextLine();
-				System.out.print("enter name\n");
-				String name = entradat.nextLine();
-				System.out.print("enter name of owner\n");
-				String n_Owner = entradat.nextLine();
-				System.out.print("enter id\n");
-				String id = entradat.nextLine();
-				System.out.print("enter cellphone\n");
-				String cellphone = entradat.nextLine();
-				System.out.print("enter address\n");
-				String address = entradat.nextLine();
-				System.out.print("enter days of pet into kinder\n");
-				int days = entradat.nextInt();
-				Owner ownerr = new Owner(id, n_Owner, cellphone, address);
-				petcenter.addpetHabitat(specie,name,ownerr,days);									
+				int o_specie = 0;
+				
+				System.out.println("Enter Specie:\n"+
+				"(1) REPTILE\n"+
+				"(2) BIRD\n"+
+				"(3) CAT\n"+
+				"(4) DOG\n"+
+				"(5) RABBIT\n"+
+				"(0) Back\n");
+
+				o_specie = entradat.nextInt();
+				entradat.nextLine();
+					switch (o_specie)
+					{
+						case 1:
+						System.out.print("enter specie\n");
+						String specie =entradat.nextLine();
+						System.out.print("enter name\n");
+						String name = entradat.nextLine();
+						System.out.print("enter name of owner\n");
+						String n_Owner = entradat.nextLine();
+						System.out.print("enter id\n");
+						String id = entradat.nextLine();
+						System.out.print("enter cellphone\n");
+						String cellphone = entradat.nextLine();
+						System.out.print("enter address\n");
+						String address = entradat.nextLine();
+						System.out.print("enter days of pet into kinder\n");
+						int days = entradat.nextInt();
+						System.out.print("enter type of acuarium\n");
+						String aquariumTypee = entradat.nextLine();
+						AquariumType prtt = vAquarium(aquariumTypee);
+						Owner ownerr = new Owner(id, n_Owner, cellphone, address);
+						petcenter.addReptileInHabitat(specie,name,ownerr,days,prtt);
+						break;
+
+						case 2:
+						System.out.print("enter specie\n");
+						String specie =entradat.nextLine();
+						System.out.print("enter name\n");
+						String name = entradat.nextLine();
+						System.out.print("enter name of owner\n");
+						String n_Owner = entradat.nextLine();
+						System.out.print("enter id\n");
+						String id = entradat.nextLine();
+						System.out.print("enter cellphone\n");
+						String cellphone = entradat.nextLine();
+						System.out.print("enter address\n");
+						String address = entradat.nextLine();
+						System.out.print("enter days of pet into kinder\n");
+						int days = entradat.nextInt();
+						System.out.print("enter type of cage\n");
+						String cageTypee = entradat.nextLine();
+						CageType ttpr = vCage(cageTypee);
+						Owner ownerr = new Owner(id, n_Owner, cellphone, address);
+						petcenter.addBirdInHabitat(specie,name,ownerr,days,ttpr);
+						break;
+
+						case 3:
+						System.out.print("enter specie\n");
+						String specie =entradat.nextLine();
+						System.out.print("enter name\n");
+						String name = entradat.nextLine();
+						System.out.print("enter name of owner\n");
+						String n_Owner = entradat.nextLine();
+						System.out.print("enter id\n");
+						String id = entradat.nextLine();
+						System.out.print("enter cellphone\n");
+						String cellphone = entradat.nextLine();
+						System.out.print("enter address\n");
+						String address = entradat.nextLine();
+						System.out.print("enter days of pet into kinder\n");
+						int days = entradat.nextInt();
+						Owner ownerr = new Owner(id, n_Owner, cellphone, address);
+						petcenter.addCatInHabitat(specie,name,ownerr,days);
+						break;
+
+						case 4:
+						System.out.print("enter specie\n");
+						String specie =entradat.nextLine();
+						System.out.print("enter name\n");
+						String name = entradat.nextLine();
+						System.out.print("enter name of owner\n");
+						String n_Owner = entradat.nextLine();
+						System.out.print("enter id\n");
+						String id = entradat.nextLine();
+						System.out.print("enter cellphone\n");
+						String cellphone = entradat.nextLine();
+						System.out.print("enter address\n");
+						String address = entradat.nextLine();
+						System.out.print("enter days of pet into kinder\n");
+						int days = entradat.nextInt();
+						Owner ownerr = new Owner(id, n_Owner, cellphone, address);
+						petcenter.addDogInHabitat(specie,name,ownerr,days);
+						break;
+
+						case 5:
+						System.out.print("enter specie\n");
+						String specie =entradat.nextLine();
+						System.out.print("enter name\n");
+						String name = entradat.nextLine();
+						System.out.print("enter name of owner\n");
+						String n_Owner = entradat.nextLine();
+						System.out.print("enter id\n");
+						String id = entradat.nextLine();
+						System.out.print("enter cellphone\n");
+						String cellphone = entradat.nextLine();
+						System.out.print("enter address\n");
+						String address = entradat.nextLine();
+						System.out.print("enter days of pet into kinder\n");
+						int days = entradat.nextInt();
+						Owner ownerr = new Owner(id, n_Owner, cellphone, address);
+						petcenter.addRabbitInHabitat(specie,name,ownerr,days);
+						break;
+				    }while (optionnn !=0);								
 				break;
 
 				case 2:                 					
@@ -247,6 +353,44 @@ public class Main
 
 		}return prt;
 	}
+
+	public AquariumType vAquarium(String aquariumTypee)
+
+	{
+		AquariumType prtt = AquariumType.NOTO;
+
+		if( aquariumTypee.equalsIgnoreCase("AMPHIBIAN"))
+		{
+			prtt = AquariumType.AMPHIBIAN;
+
+		}
+		else if( aquariumTypee.equalsIgnoreCase("EARTH"))
+		{
+			prtt = AquariumType.EARTH;
+
+		}return prtt;
+	}
+
+
+	public CageType vCage(String cageTypee)
+
+	{
+		CageType ttpr = CageType.NOTTO;
+
+		if( cageTypee.equalsIgnoreCase("GROUND_GUACAL"))
+		{
+			ttpr = CageType.GROUND_GUACAL;
+
+		}
+		else if( cageTypee.equalsIgnoreCase("PENDET_GUACAL"))
+		{
+			ttpr = CageType.PENDET_GUACAL;
+
+		}return ttpr;
+	}
+
+
+
 
 
 

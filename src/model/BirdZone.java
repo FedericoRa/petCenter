@@ -23,9 +23,19 @@ public class BirdZone extends PetHabitats
 	*@param width        type String 
 	*@param maxBirds       type String
 	*@param height   type String
+	*@param days type int
 	*@param cage   type CageType
 	*/
 
+	public BirdZone(String habitatID, String length, String width,String maxBirds,String height,int days, CageType cage)
+	{
+		super(habitatID, length, width);
+		this.maxBirds = maxBirds;
+		this.height = height;
+		this.days = days;
+		this.cage = cage;
+
+	}
 
 	public BirdZone(String habitatID, String length, String width,String maxBirds,String height, CageType cage)
 	{
@@ -72,12 +82,12 @@ public class BirdZone extends PetHabitats
 	}
 
 	@Override
-	public String showInfo()
+	public String toString()
 	{
-		String out = super.showstats();
-		out += "Bird";
-
-		return out;
+		return super.toString() +		
+		"\nmaxBirds " + maxBirds +
+		"\nheight " + height+ 
+		"\ntype of cage" + cage +"\n";
 	}
 
 

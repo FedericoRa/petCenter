@@ -11,35 +11,38 @@ public class PetCenter
     private Veterinary[] vets;                //array of vets
     public static final int MAX_VETS = 7;     //constant variable of max vets
 
-    private Owner[] owners;               
-    public static final int MAX_OWNERS = 120;
+    private Owner[] owners;                   //array of owners
+    public static final int MAX_OWNERS = 120; //constant of max owners
 
-    static PetHabitats[][]matrixHabitats = new PetHabitats [6][5];
+    private final int MAX_ROW_MATRIX = 6;    //constant of max row in matrix
+    private final int MAX_COLUMN_MATRIX = 5;  //constant of max column in matrix
 
-    public static final int MIN_CAT_ROW = 0;
-    public static final int MAX_CAT_ROW = 2;
-    public static final int MIN_CAT_CL = 0;
-    public static final int MAX_CAT_CL = 2;
+    public static final int MIN_CAT_ROW = 0; //constant of min row in matrix
+    public static final int MAX_CAT_ROW = 2;  //constant of max row in matrix
+    public static final int MIN_CAT_CL = 0;	//constant of min column in matrix
+    public static final int MAX_CAT_CL = 2; //constant of max column in matrix
 
-    public static final int MIN_RABB_ROW = 2;
-    public static final int MAX_RABB_ROW = 3;
-    public static final int MIN_RABB_CL = 3;
-    public static final int MAX_RABB_CL = 4;
+    public static final int MIN_RABB_ROW = 2; //constant of min row in matrix
+    public static final int MAX_RABB_ROW = 3; //constant of max row in matrix
+    public static final int MIN_RABB_CL = 3; //constant of min column in matrix
+    public static final int MAX_RABB_CL = 4; //constant of max column in matrix
 
-    public static final int MIN_REP_ROW = 0;
-    public static final int MAX_REP_ROW = 1;
-    public static final int MIN_REP_CL = 3;
-    public static final int MAX_REP_CL = 4;
+    public static final int MIN_REP_ROW = 0; //constant of min row in matrix
+    public static final int MAX_REP_ROW = 1; //constant of max row in matrix
+    public static final int MIN_REP_CL = 3; //constant of min column in matrix
+    public static final int MAX_REP_CL = 4; //constant of max column in matrix
 
-    public static final int MIN_BIRD_ROW = 4;
-    public static final int MAX_BIRD_ROW = 5;
-    public static final int MIN_BIRD_CL = 3;
-    public static final int MAX_BIRD_CL = 4;
+    public static final int MIN_BIRD_ROW = 4; //constant of min row in matrix
+    public static final int MAX_BIRD_ROW = 5; //constant of max row in matrix
+    public static final int MIN_BIRD_CL = 3; //constant of min column in matrix
+    public static final int MAX_BIRD_CL = 4; //constant of max column in matrix
 
-    public static final int MIN_DOG_ROW = 3;
-    public static final int MAX_DOG_ROW = 5;
-    public static final int MIN_DOG_CL = 0;
-    public static final int MAX_DOG_CL = 2;
+    public static final int MIN_DOG_ROW = 3; //constant of min row in matrix
+    public static final int MAX_DOG_ROW = 5; //constant of max row in matrix
+    public static final int MIN_DOG_CL = 0; //constant of min column in matrix
+    public static final int MAX_DOG_CL = 2; //constant of max column in matrix
+
+    private PetHabitats [][] matrixhabitats; //matrix of habitats
 
 
 
@@ -55,6 +58,14 @@ public class PetCenter
 
     }
 
+    /**
+	*This method is to add a vet
+	*@param id type String  
+	*@param name type String
+	*@param lastName type String
+	*@param vetRegister type String
+	*/
+
 
     public void showaddvet(String id, String name, String lastName, String vetRegister)
     {
@@ -69,6 +80,36 @@ public class PetCenter
 	 	}
 	}
 
+/**
+	*This method is to find some vet in petcenter
+	*@param id type String  
+	*/
+
+	public int findVet(String id)
+	{
+		boolean cen = false;
+		int iV = -1;
+		
+
+		for(int i= 0; i < MAX_VETS && !cen; i++)
+		{
+			if(vets[i] != null)
+			{
+				if(id.equals(vets[i].getid()))
+					cen = true ;
+					iV = i;
+
+			}
+		}
+
+		if (cen = false)
+		{
+			iV = -1;
+		}
+
+		return iV;
+  }
+
 
 
 	public void showremoveveterinary()
@@ -79,7 +120,13 @@ public class PetCenter
 
 
 
-
+/**
+	*This method is to change the status of a pet
+	*Object of type pet must be in status waiting
+	*Change pet status to DEPARTURE
+	*@param name type String  
+	*@param owner type String
+	*/
 
 
 	public void showaddpet(String specie, String name, String age, String race, String symptoms, String id, Priority priority)
@@ -167,9 +214,120 @@ public class PetCenter
 
 
 
+//initialized habitats
+
+	/**
+	*This method is to initialized the "space" of habitat
+	*/
+
+	public void createdHabitats()
+	{	
+		PetHabitats = new matrixHabitats[MAX_ROW_MATRIX][MAX_COLUMN_MATRIX];
+
+
+		int acum = 0;
+
+		for(int i = MIN_CAT_ROW; i <= MAX_CAT_ROW; i ++)
+		{
+			for(int j = MIN_CAT_CL; j <= MAX_CAT_CL; i++)
+			{
+				matrixHabitats[i][j] = new CatZone("CZ"+(acum+1), "200", "150", "100", "75"); 
+				acum ++;
+			}
+		}
+
+
+
+		acum = 0;
+
+		for(int i = MIN_DOG_ROW; i <= MAX_DOG_ROW; i ++)
+		{
+			for(int j = MIN_DOG_CL; j <= MAX_DOG_CL; i++)
+			{
+				matrixHabitats[i][j] = new DogZone("DZ"+(acum+1), "200", "150", "2"); 
+				acum ++;
+			}
+		}
+
+
+
+		acum = 0;
+
+			for(int i = MIN_RABB_ROW; i <= MAX_RABB_ROW; i ++)
+		{
+			for(int j = MIN_RABB_CL; j <= MAX_RABB_CL; i++)
+			{
+				matrixHabitats[i][j] = new RabbitZone("RZ"+(acum+1), "200", "150", "madriguera", "1");
+				acum ++;
+			}
+		}
+
+
+
+		acum = 0;
+
+			for(int i = MIN_BIRD_ROW; i <= MAX_BIRD_ROW; i ++)
+		{
+			for(int j = MIN_BIRD_CL; j <= MAX_BIRD_CL; i++)
+			{
+				matrixHabitats[i][j] = new BirdZone("BZ"+(acum+1), "200", "150", "4", "100"); 
+				acum ++;
+			}
+		}
+
+
+
+		acum = 0;
+
+			for(int i = MIN_REP_ROW; i <= MAX_REP_ROW; i ++)
+		{
+			for(int j = MIN_REP_CL; j <= MAX_REP_CL; i++)
+			{
+				matrixHabitats[i][j] = new ReptileZone("RpZ"+(acum+1), "400", "320","Madera");
+				acum ++;
+			}
+		}
+
+
+	
+
+	}
+
+
+
+
 //Methods of cat
 
-	public String addCatHabitat(pet)
+	/**
+	*This method is to find some space in the habitat of th matrix in the place of cats
+	*/
+
+	public boolean findHabitatCat()
+	{
+		boolean message = false;
+
+				for(int i = MIN_CAT_ROW; i <= MAX_CAT_ROW && !message; i ++)
+		{
+			for(int j = MIN_CAT_CL; j <= MAX_CAT_CL && !message; i++)
+			{
+				if(matrixHabitats[i][j].getPet() == null)
+				{
+					message = true;
+				}
+				else message = false;
+			}
+		}
+		return message;
+
+
+	}
+
+	/**
+	*This method is to add a pet in the habitat of th matrix in the place of cat
+	*/
+
+
+	public String addCatInHabitat(String specie,String name,Owner ownerr,int days)
 	{
 		boolean cen = false;
 
@@ -183,7 +341,7 @@ public class PetCenter
 				{
 					cen = true;
 					matrixHabitats [i][j].setPet(cat);
-					matrixHabitats [i][j].setHabitatStatus.V;
+					matrixHabitats [i][j].setHabitatStatus(HabitatStatus.V);
 					message = "the cat has been transfer to kindergarden";
 
 				}
@@ -192,31 +350,24 @@ public class PetCenter
 		return message;
 	}
 
-	public HabitatIDCat()
-	{
-		matrixHabitats = new PetHabitats [6][5];
-		int acum = 0;
 
-			for(int i = MIN_CAT_ROW; i <= MAX_CAT_ROW; i ++)
-		{
-			for(int j = MIN_CAT_CL; j <= MAX_CAT_CL; i++)
-			{
-				matrixHabitats[i][j] = new CatZone("CZ"+(acum+1), 160, 130, 100,75); //falta status
-				acum ++;
-			}
-		}
+	
 
-	}
+	//Methods of Dog
 
-	public boolean findhabitatCat()
+	/**
+	*This method is to find some space in the habitat of th matrix in the place of dog
+	*/
+
+	public boolean findHabitatDog()
 	{
 		boolean message = false;
 
-				for(int i = MIN_CAT_ROW; i <= MAX_CAT_ROW; i ++)
+				for(int i = MIN_DOG_ROW; i <= MAX_DOG_ROW && !message; i ++)
 		{
-			for(int j = MIN_CAT_CL; j <= MAX_CAT_CL; i++)
+			for(int j = MIN_DOG_CL; j <= MAX_DOG_CL && !message; i++)
 			{
-				if(matrixHabitats[i][j].getPet() = null)
+				if(matrixHabitats[i][j].getPet() == null)
 				{
 					message = true;
 				}
@@ -229,13 +380,15 @@ public class PetCenter
 	}
 
 
-	//Methods of Dog
+	/**
+	*This method is to add a pet in the habitat of th matrix in the place of dog
+	*/
 
-	public String addDogHabitat(pet)
+	public String addDogInHabitat(String specie,String name,Owner ownerr,int days)
 	{
 		boolean cen = false;
 
-		String mmssgg ="";
+		String message ="";
 
 		for(int i = MIN_DOG_ROW; i <= MAX_DOG_ROW && !cen; i ++)
 		{
@@ -245,58 +398,54 @@ public class PetCenter
 				{
 					cen = true;
 					matrixHabitats [i][j].setPet(dog);
-					matrixHabitats [i][j].setHabitatStatus.V;
-					mmssgg = "the dog has been transfer to kindergarden";
+					matrixHabitats [i][j].setHabitatStatus(HabitatStatus.V);
+					message = "the dog has been transfer to kindergarden";
 
 				}
 			}
 		}
-		return mmssgg;
+		return message;
 	}
 
-	public HabitatIDDog()
-	{
-		matrixHabitats = new PetHabitats [6][5];
-		int acum = 0;
-
-			for(int i = MIN_DOG_ROW; i <= MAX_DOG_ROW; i ++)
-		{
-			for(int j = MIN_DOG_CL; j <= MAX_DOG_CL; i++)
-			{
-				matrixHabitats[i][j] = new DogZone("DZ"+(acum+1), 200, 160, 2); //falta status
-				acum ++;
-			}
-		}
-
-	}
-
-	public boolean findhabitatDog()
-	{
-		boolean mmssgg = false;
-
-				for(int i = MIN_DOG_ROW; i <= MAX_DOG_ROW; i ++)
-		{
-			for(int j = MIN_DOG_CL; j <= MAX_DOG_CL; i++)
-			{
-				if(matrixHabitats[i][j].getPet() = null)
-				{
-					mmssgg = true;
-				}
-				else mmssgg = false;
-			}
-		}
-		return mmssgg;
 
 
-	}
 
 	//Methods of Rabbit
 
-	public String addRabbitHabitat(pet)
+	/**
+	*This method is to find some space in the habitat of th matrix in the place of rabbbits
+	*/
+
+	public boolean findHabitatRabbit()
+	{
+		boolean message = false;
+
+				for(int i = MIN_RABB_ROW; i <= MAX_RABB_ROW && !message; i ++)
+		{
+			for(int j = MIN_RABB_CL; j <= MAX_RABB_CL && !message; i++)
+			{
+				if(matrixHabitats[i][j].getPet() == null)
+				{
+					message = true;
+				}
+				else message = false;
+			}
+		}
+		return message;
+
+
+	}
+
+	/**
+	*This method is to add a pet in the habitat of th matrix in the place of rabbit
+	*/
+
+
+	public String addRabbitInHabitat(String specie,String name,Owner ownerr,int days)
 	{
 		boolean cen = false;
 
-		String messgg ="";
+		String message ="";
 
 		for(int i = MIN_RABB_ROW; i <= MAX_RABB_ROW && !cen; i ++)
 		{
@@ -306,121 +455,106 @@ public class PetCenter
 				{
 					cen = true;
 					matrixHabitats [i][j].setPet(rabbit);
-					matrixHabitats [i][j].setHabitatStatus.V;
-					messgg = "the rabbit has been transfer to kindergarden";
+					matrixHabitats [i][j].setHabitatStatus(HabitatStatus.V);
+					message = "the rabbit has been transfer to kindergarden";
 
 				}
 			}
 		}
-		return messgg;
-	}
-
-	public HabitatIDRabbit()
-	{
-		matrixHabitats = new PetHabitats [6][5];
-		int acum = 0;
-
-			for(int i = MIN_RBB_ROW; i <= MAX_RBB_ROW; i ++)
-		{
-			for(int j = MIN_RBB_CL; j <= MAX_RBB_CL; i++)
-			{
-				matrixHabitats[i][j] = new RabbitZone("RZ"+(acum+1), 70, 40, "madriguera", 1);//falta status
-				acum ++;
-			}
-		}
-
-	}
-
-	public boolean findhabitatRabbit()
-	{
-		boolean mssgg = false;
-
-				for(int i = MIN_RABB_ROW; i <= MAX_RABB_ROW; i ++)
-		{
-			for(int j = MIN_RABB_CL; j <= MAX_RABB_CL; i++)
-			{
-				if(matrixHabitats[i][j].getPet() = null)
-				{
-					mssgg = true;
-				}
-				else mssgg = false;
-			}
-		}
-		return mssgg;
-
-
+		return message;
 	}
 
 
 	//Method of Bird
 
-	public String addBirdHabitat(pet)
+	/**
+	*This method is to find some space in the habitat of th matrix in the place of bird
+	*/
+
+	public boolean findHabitatBird()
+	{
+		boolean message = false;
+
+				for(int i = MIN_BIRD_ROW; i <= MAX_BIRD_ROW && !message; i ++)
+		{
+			for(int j = MIN_BIRD_CL; j <= MAX_BIRD_CL && !message; i++)
+			{
+				if(matrixHabitats[i][j].getPet() == null)
+				{
+					message = true;
+				}
+				else message = false;
+			}
+		}
+		return message;
+
+
+	}
+
+	/**
+	*This method is to add a pet in the habitat of th matrix in the place of bird
+	*/
+
+	public String addBirdInHabitat(String specie,String name,Owner ownerr,int days,AquariumType ttpr)
 	{
 		boolean cen = false;
 
-		String messsgg ="";
+		String message ="";
 
-		for(int i = MIN_BIRD_ROW; i <= MAX_RABB_ROW && !cen; i ++)
+		for(int i = MIN_BIRD_ROW; i <= MAX_BIRD_ROW && !cen; i ++)
 		{
-			for(int j = MIN_RABB_CL; j <= MAX_RABB_CL && !cen; i++)
+			for(int j = MIN_BIRD_CL; j <= MAX_BIRD_CL && !cen; i++)
 			{
 				if(matrixHabitats[i][j].getPet() ==  null)
 				{
 					cen = true;
 					matrixHabitats [i][j].setPet(bird);
-					matrixHabitats [i][j].setHabitatStatus.V;
-					messsgg = "the bird has been transfer to kindergarden";
+					matrixHabitats [i][j].setHabitatStatus(HabitatStatus.V);
+					message = "the bird has been transfer to kindergarden";
 
 				}
 			}
 		}
-		return messsgg;
+		return message;
 	}
 
-	public HabitatIDBird()
-	{
-		matrixHabitats = new PetHabitats [6][5];
-		int acum = 0;
-
-			for(int i = MIN_BIRD_ROW; i <= MAX_BIRD_ROW; i ++)
-		{
-			for(int j = MIN_BIRD_CL; j <= MAX_BIRD_CL; i++)
-			{
-				matrixHabitats[i][j] = new BirdZone("BZ"+(acum+1), 300, 200, 4, 100); ///falta status, cage
-				acum ++;
-			}
-		}
-
-	}
-
-	public boolean findhabitatBird()
-	{
-		boolean msssgg = false;
-
-				for(int i = MIN_BIRD_ROW; i <= MAX_BIRD_ROW; i ++)
-		{
-			for(int j = MIN_BIRD_CL; j <= MAX_BIRD_CL; i++)
-			{
-				if(matrixHabitats[i][j].getPet() = null)
-				{
-					msssgg = true;
-				}
-				else msssgg = false;
-			}
-		}
-		return msssgg;
-
-
-	}
 
 
 	//Methods of Reptile
 
-	public String addReptileHabitat(pet)
+	/**
+	*This method is to find some space in the habitat of th matrix in the place of reptile
+	*/
+
+	public boolean findHabitatReptile()
+	{
+		boolean message = false;
+
+				for(int i = MIN_REP_ROW; i <= MAX_REP_ROW && !message; i ++)
+		{
+			for(int j = MIN_REP_CL; j <= MAX_REP_CL && !message; i++)
+			{
+				if(matrixHabitats[i][j].getPet() == null)
+				{
+					message = true;
+				}
+				else message = false;
+			}
+		}
+		return message;
+
+
+	}
+
+	/**
+	*This method is to add a pet in the habitat of th matrix in the place of reptile
+	*/
+
+	public String addReptileInHabitat(String specie,String name,Owner ownerr,int days,AquariumType prtt)
 	{
 		boolean cen = false;
 
-		String mg ="";
+		String message ="";
 
 		for(int i = MIN_REP_ROW; i <= MAX_REP_ROW && !cen; i ++)
 		{
@@ -429,50 +563,14 @@ public class PetCenter
 				if(matrixHabitats[i][j].getPet() ==  null)
 				{
 					cen = true;
-					matrixHabitats [i][j].setPet(reptile);
-					matrixHabitats [i][j].setHabitatStatus.V;
-					mg = "the reptile has been transfer to kindergarden";
+					matrixHabitats [i][j].setPet(bird);
+					matrixHabitats [i][j].setHabitatStatus(HabitatStatus.V);
+					message = "the reptile has been transfer to kindergarden";
 
 				}
 			}
 		}
-		return mg;
-	}
-
-	public HabitatIDReptile()
-	{
-		matrixHabitats = new PetHabitats [6][5];
-		int acum = 0;
-
-			for(int i = MIN_REP_ROW; i <= MAX_REP_ROW; i ++)
-		{
-			for(int j = MIN_REP_CL; j <= MAX_REP_CL; i++)
-			{
-				matrixHabitats[i][j] = new ReptileZone("RpZ"+(acum+1), 400, 320,"Madera"); //falta status, aquarium
-				acum ++;
-			}
-		}
-
-	}
-
-	public boolean findhabitatReptile()
-	{
-		boolean mg = false;
-
-				for(int i = MIN_REP_ROW; i <= MAX_REP_ROW; i ++)
-		{
-			for(int j = MIN_REP_CL; j <= MAX_REP_CL; i++)
-			{
-				if(matrixHabitats[i][j].getPet() = null)
-				{
-					mg = true;
-				}
-				else mg = false;
-			}
-		}
-		return mg;
-
-
+		return message;
 	}
 
 

@@ -4,7 +4,7 @@ package model;
 *this enum class establishes a type of acuarium that reptile
 */
 
-public enum Priority
+public enum AquariumType
 {
-	AMPHIBIAN, EARTH,;   //it is options of the reptile aquarium type
+	AMPHIBIAN, EARTH, NOTO;   //it is options of the reptile aquarium type
 }

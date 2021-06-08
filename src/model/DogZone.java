@@ -16,6 +16,13 @@ public class DogZone extends PetHabitats
 	*@param toy´sNumber       type String
 	*/
 
+	public DogZone(String habitatID, String length, String width, String toysNumber, int days)
+	{
+		super(habitatID, length, width);
+		this.toysNumber = toysNumber;
+		this.days = days;
+
+	}
 
 	public DogZone(String habitatID, String length, String width, String toysNumber)
 	{
@@ -41,12 +48,10 @@ public class DogZone extends PetHabitats
 
 
 	@Override
-	public String showInfo()
+	public String toString()
 	{
-		String out = super.showstats();
-		out += "Dog";
-
-		return out;
+		return super.toString() +		
+		"\nmtoys Number " + toysNumber+ "\n";
 	}
 
 	

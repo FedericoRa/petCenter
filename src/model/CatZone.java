@@ -22,6 +22,15 @@ public class CatZone extends PetHabitats
 	*@param max_weight   type String
 	*/
 
+	public CatZone(String habitatID, String length, String width, String height, String max_weight, int days)
+	{
+		super(habitatID, length, width);
+		this.height = height;
+		this.max_weight = max_weight;
+		this.days = days;
+
+	}
+
 
 	public CatZone(String habitatID, String length, String width, String height, String max_weight)
 	{
@@ -58,12 +67,11 @@ public class CatZone extends PetHabitats
 
 
 	@Override
-	public String showInfo()
+	public String toString()
 	{
-		String out = super.showstats();
-		out += "Dog";
-
-		return out;
+		return super.toString() +		
+		"\nHeight " + height +
+		"\nmax weight " + max_weight+ "\n";
 	}
 
 	

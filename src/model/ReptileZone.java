@@ -17,9 +17,18 @@ public class ReptileZone extends PetHabitats
 	*@param length       type String
 	*@param width        type String 
 	*@param aquariumMaterial       type String
+	*@param days type int
 	*@param aquarium   type String
 	*/
 
+	public ReptileZone(String habitatID, String length, String width,String aquariumMaterial, int days, AquariumType aquarium)
+	{
+		super(habitatID, length, width, days);
+		this.aquariumMaterial = aquariumMaterial;
+		this.days = days;
+		this.aquarium = aquarium;
+
+	}
 
 	public ReptileZone(String habitatID, String length, String width,String aquariumMaterial, AquariumType aquarium)
 	{
@@ -55,13 +64,13 @@ public class ReptileZone extends PetHabitats
 	}
 
 	@Override
-	public String showInfo()
+	public String toString()
 	{
-		String out = super.showstats();
-		out += "Reptile";
-
-		return out;
+		return super.toString() +		
+		"\nAquarium Material " + aquariumMaterial +
+		"\nType of aquarium " + aquarium+ "\n";
 	}
+	
 	
 
 

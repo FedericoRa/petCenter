@@ -5,22 +5,24 @@ public abstract class PetHabitats
 	/**
 	 * ID of habitat
 	*/
-	private String habitatID;
+	protected String habitatID;
 
 	/**
 	 * length of habitat 
 	*/
-	private String length;
+	protected String length;
 
 	/**
 	 * width of habitat 
 	*/
-	private String width;
+	protected String width;
 
 	protected HabitatStatus habitatStatus;
 
 
-	private Pet pet;
+	protected Pet pet;
+
+	protected int days;
 
 	/**
 	*Constructor method of reptile zone
@@ -30,6 +32,16 @@ public abstract class PetHabitats
 	*@param habitatStatus   type HabitatStatus 
 	*/
 
+	public PetHabitats(String habitatID, String length, String width, int days)
+	{
+		this.habitatID = habitatID;
+		this.length = length;
+		this.width = width;
+		this.days = days;
+		habitatStatus = HabitatStatus.V;
+		pet = null;
+	}
+
 	public PetHabitats(String habitatID, String length, String width)
 	{
 		this.habitatID = habitatID;
@@ -38,6 +50,7 @@ public abstract class PetHabitats
 		habitatStatus = HabitatStatus.V;
 		pet = null;
 	}
+
 
 	//getters
 
@@ -93,6 +106,8 @@ public abstract class PetHabitats
 	{
 		this.habitatStatus = habitatStatus;
 	}
+
+
 
 
 
